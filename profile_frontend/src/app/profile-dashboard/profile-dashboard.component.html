@@ -13,10 +13,10 @@
     </div>
   </div>
 
-  <!-- Main dashboard area: info cards & table right after header -->
-  <div class="dashboard-main-card" style="margin-top: -38px; padding-top: 34px;">
-    <!-- Info cards row -->
-    <div class="info-cards-row" style="margin-bottom: 18px;">
+  <!-- Main dashboard area: info cards & table immediately follow header, no gaps -->
+  <div class="dashboard-main-card tight-dashboard-card">
+    <!-- Info cards row (compact) -->
+    <div class="info-cards-row compact-info-row">
       <app-info-card *ngFor="let c of infoCards"
         [icon]="c.icon"
         [label]="c.label"
@@ -25,16 +25,15 @@
         [badgeColor]="c.badgeColor"></app-info-card>
     </div>
     <!-- Controls row -->
-    <div style="display: flex; flex-direction: column; gap: 0;">
+    <div class="dashboard-controls">
       <!-- Filter tabs -->
       <app-filter-tabs
         [tabs]="filterTabs"
         [activeIndex]="activeTabIdx"
         (tabSelected)="setTab($event)">
       </app-filter-tabs>
-
       <!-- Search bar -->
-      <div class="search-bar-row" style="margin-top: 10px; margin-bottom: 10px;">
+      <div class="search-bar-row modern-search-bar">
         <input
           class="search-in"
           type="text"
@@ -43,9 +42,8 @@
         <span class="material-symbols-outlined search-icon">search</span>
       </div>
     </div>
-
-    <!-- Data table below controls with tightly controlled margins -->
-    <div class="table-responsive" style="margin-top: 0;">
+    <!-- Data table -->
+    <div class="table-responsive">
       <table class="profile-table">
         <thead>
           <tr>

@@ -4,12 +4,15 @@
   padding: 0;
 }
 
+/* Eliminate unwanted vertical whitespace between header and main card */
 .header-gradient {
   width: 100vw;
   min-height: 110px;
   display: flex;
   align-items: flex-end;
   box-shadow: 0px 8px 26px -7px rgba(101, 214, 255, 0.16);
+  margin-bottom: 0;
+  padding-bottom: 0; /* no gap under header bar */
 }
 
 .header-content {
@@ -61,45 +64,101 @@
   background: #2091eb;
 }
 
-.dashboard-main-card {
+/* Compact variant for no-gap look */
+.dashboard-main-card,
+.tight-dashboard-card {
   position: relative;
   background: #fff;
   border-radius: 13px;
   box-shadow: 0 4px 20px 0 rgba(190, 220, 255, 0.16);
   max-width: 1176px;
   min-height: 160px;
-  margin: -20px auto 0 auto;
-  padding: 16px 16px 12px 16px;
-  z-index: 11;
+  margin: 0 auto;
+  top: -19px; /* visually pulls card up to header, overlaps slightly */
+  z-index: 12;
+  padding: 14px 16px 12px 16px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
-  .dashboard-main-card {
-    padding: 10px 6px 6px 6px;
+  .dashboard-main-card,
+  .tight-dashboard-card {
+    padding: 7px 3px 5px 3px;
   }
 }
 
-.info-cards-row {
+/* Info cards row: reduce margin/padding to hug card top */
+.info-cards-row,
+.compact-info-row {
   display: flex;
   flex-direction: row;
-  gap: 13px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 6px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
+
 @media (max-width: 900px) {
-  .info-cards-row {
-    gap: 7px;
+  .info-cards-row,
+  .compact-info-row {
+    gap: 4px;
+    margin-bottom: 5px;
   }
 }
 
-.search-bar-row {
+/* Ensure the controls area (tabs/search) is packed tightly as well */
+.dashboard-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 0 3px 0;
+  padding: 0;
+}
+
+/* A more compact search bar with modern spacing */
+.search-bar-row,
+.modern-search-bar {
   display: flex;
   align-items: center;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin: 0 0 6px 0;
+  padding: 0;
   position: relative;
-  max-width: 270px;
+  max-width: 260px;
+}
+
+.search-in {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background: #f4f7fa;
+  padding: 7px 26px 7px 13px;
+  font-size: 0.91rem;
+  color: #293352;
+  box-shadow: 0 1.1px 5px 0 rgba(204, 212, 227, 0.065);
+}
+
+.search-in::placeholder {
+  color: #b2bcd4;
+}
+
+.search-icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.03rem;
+  color: #85a2d1;
+}
+
+/* Remove remaining space above table */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 0;
+  border-radius: 10px;
+  background: #fdfdff;
+  box-shadow: 0 1.2px 7px 0 rgba(210, 227, 245, 0.10);
 }
 
 .search-in {
