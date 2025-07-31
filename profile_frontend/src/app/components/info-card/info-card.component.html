@@ -1,0 +1,12 @@
+<div class="info-card">
+  <div class="icon-circle" [ngStyle]="{'background': badgeColor}">
+    <span *ngIf="icon" class="material-symbols-outlined">{{ icon }}</span>
+  </div>
+  <div class="info-details">
+    <div class="value-row">
+      <span class="value">{{ value }}</span>
+      <span *ngIf="badge" class="badge" [ngStyle]="{'background': badgeColor}">{{ badge }}</span>
+    </div>
+    <span class="label">{{ label }}</span>
+  </div>
+</div>

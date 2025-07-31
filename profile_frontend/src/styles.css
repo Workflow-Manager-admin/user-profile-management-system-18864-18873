@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Segoe+UI:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500&display=swap');
 /* Global styles for minimalistic design */
 * {
   margin: 0;
@@ -7,6 +9,21 @@
 
 html, body {
   height: 100%;
-  background-color: #ffffff;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #ecf4fa;
+  color: #23254b;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Default size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }

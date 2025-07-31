@@ -1,0 +1,82 @@
+<div class="dashboard-bg">
+  <!-- Gradient header -->
+  <div class="header-gradient" [ngStyle]="{'background': headerGradient}">
+    <div class="header-content">
+      <div>
+        <h2 class="dashboard-heading">Profile Management Dashboard</h2>
+        <p class="dashboard-subheading">Modern profile & account management overview and actions.</p>
+      </div>
+      <button class="create-btn">
+        <span class="material-symbols-outlined">add</span>
+        Create Profile
+      </button>
+    </div>
+  </div>
+
+  <div class="dashboard-main-card">
+    <!-- Info cards row -->
+    <div class="info-cards-row">
+      <app-info-card *ngFor="let c of infoCards"
+        [icon]="c.icon"
+        [label]="c.label"
+        [value]="c.value"
+        [badge]="c.badge"
+        [badgeColor]="c.badgeColor"></app-info-card>
+    </div>
+    <div style="margin-top: 26px;">
+      <!-- Filter tabs -->
+      <app-filter-tabs
+        [tabs]="filterTabs"
+        [activeIndex]="activeTabIdx"
+        (tabSelected)="setTab($event)">
+      </app-filter-tabs>
+
+      <!-- Search bar -->
+      <div class="search-bar-row">
+        <input
+          class="search-in"
+          type="text"
+          [(ngModel)]="searchValue"
+          placeholder="Search by name..."/>
+        <span class="material-symbols-outlined search-icon">search</span>
+      </div>
+
+      <!-- Data table -->
+      <div class="table-responsive">
+        <table class="profile-table">
+          <thead>
+            <tr>
+              <th>Profile Name</th>
+              <th>Devices</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Created Date</th>
+              <th style="text-align: center;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prof of filteredProfiles">
+              <td>{{ prof.name }}</td>
+              <td>{{ prof.devices }}</td>
+              <td>
+                <app-pill-label [text]="prof.type" [bg]="getTypeColor(prof.type)" color="#fff"></app-pill-label>
+              </td>
+              <td>
+                <app-pill-label [text]="prof.status" [bg]="getStatusColor(prof.status)" color="#fff"></app-pill-label>
+              </td>
+              <td>{{ prof.created }}</td>
+              <td class="actions">
+                <button title="Edit" class="icon-btn edit"><span class="material-symbols-outlined">edit</span></button>
+                <button title="Download" class="icon-btn download"><span class="material-symbols-outlined">download</span></button>
+                <button title="Delete" class="icon-btn delete"><span class="material-symbols-outlined">delete</span></button>
+              </td>
+            </tr>
+            <tr *ngIf="filteredProfiles.length === 0">
+              <td colspan="6" style="text-align:center;padding:32px;color:#b0b3c1;font-weight:500;">No profiles found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
