@@ -1,13 +1,13 @@
 .tabs {
   display: flex;
-  gap: 18px;
-  margin-bottom: 18px;
-  margin-top: 10px;
+  gap: 7px;
+  margin-bottom: 7px;
+  margin-top: 2px;
 }
 
 .tab {
-  padding: 10px 26px;
-  font-size: 1rem;
+  padding: 5px 13px;
+  font-size: 0.83rem;
   color: #6c7890;
   border-radius: 999px;
   background: #f8f9fa;
@@ -21,5 +21,5 @@
   background: linear-gradient(90deg, #ff7eb3 0%, #65d6ff 100%);
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 2px 18px 0 rgba(100, 113, 255, 0.14);
+  box-shadow: 0 0.8px 7px 0 rgba(100, 113, 255, 0.10);
 }
